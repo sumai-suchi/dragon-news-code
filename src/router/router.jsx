@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../layouts/HomeLayout";
 import Homepage from "../pages/Homepage";
-import AboutPage from "../pages/AboutPage";
-import CareerPage from "../pages/CareerPage";
+
+import CategoryDetails from "../components/CategoryDetails";
+import News from "../pages/News";
 
 const router = createBrowserRouter([
   {
@@ -10,16 +11,17 @@ const router = createBrowserRouter([
     element: <HomeLayout></HomeLayout>,
     children: [
       {
-        path: "",
+        path: "/",
         element: <Homepage></Homepage>,
       },
+
       {
-        path: "about",
-        element: <AboutPage></AboutPage>,
-      },
-      {
-        path: "career",
-        element: <CareerPage></CareerPage>,
+        path: "category/:id",
+        element: <CategoryDetails></CategoryDetails>,
+        loader: async () => {
+          const res = await fetch("/news.json");
+          return res;
+        },
       },
     ],
   },

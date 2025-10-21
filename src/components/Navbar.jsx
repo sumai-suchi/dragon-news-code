@@ -7,8 +7,8 @@ const Navbar = () => {
       <div></div>
       <div className="flex gap-3 text-accent">
         <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"about"}>About</NavLink>
-        <NavLink to={"Career"}>Career</NavLink>
+        <NavLink to={"/about"}>About</NavLink>
+        <NavLink to={"/Career"}>Career</NavLink>
       </div>
       <div className="flex items-center  gap-2">
         <img className="rounded-full " src={loginImg} alt="" />
